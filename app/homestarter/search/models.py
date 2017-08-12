@@ -1,7 +1,7 @@
 from django.db import models
 
 class Contractor(models.Model):
-	name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100)s
 	contactInfo = models.TextField()
 	specialties = models.TextField()
 	ratings = models.IntegerField()

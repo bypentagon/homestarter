@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
 	return render(request, 'main/home.html')
@@ -15,3 +17,4 @@ def facebook(request):
 
 def instagram(request):
 	return redirect('https://www.instagram.com/homelyfit/')
+
