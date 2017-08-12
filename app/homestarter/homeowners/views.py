@@ -13,7 +13,7 @@ def signup(request):
 			user = authenticate(username = username, password = password)
 			login(request, user)
 			# Redirect the user to the login page
-			return redirect(login)
+			return redirect("www.facebook.com")
 		else:
 			form = UserCreationForm()
 	return render(request, 'signup.html', {'form':form})

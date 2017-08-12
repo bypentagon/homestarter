@@ -128,6 +128,6 @@ STATIC_URL = '/static/'
 
 
 # Redirect to profile page URL after login
-LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_REDIRECT_URL = '/'
 
 
