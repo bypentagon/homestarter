@@ -7,8 +7,10 @@
 	{% load static %}
 	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type = "text/css"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2">
+	<link rel="stylesheet" href="{% static 'css/animations.css' %}">
 	<meta name="viewport" content = "width=device-width, initial-scale=1" />
 	<meta name="google-site-verification" content="Xy30mKekcnRElTlzT4GXMUUKZu7jYX3UXipAegmj3-I" />
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
 	<style type="text/css">
 		html,
@@ -17,11 +19,11 @@
 		}
 		.bg {
 			min-height: 800px;
-			font-family:'Exo 2'; 
+			font-family:'Exo 2, sans-serif'; 
 			padding-top: 40px;
 		}
 		.container-fluid {
-			padding-top: 30px;
+			padding-top: 40px;
 			padding-left: 50px;
 		}
 		.btn-link:hover {
@@ -35,7 +37,9 @@
 		
 		.ft {
 			background-color: #75c3c6;
+			font-family:'Exo 2, sans-serif'; 
 		}
+		
 	</style>
 </head>
 
@@ -50,11 +54,14 @@
 				<a href='/homeowners/signup/'><button type="button" class="btn btn-link btn-lg">Sign up</button></a>
 			</div>
 			
-			<div class="row" style="margin-left: 260px">
-				{% block content %}
-				{% endblock %}
-			</div>				   	
+							   	
 		</nav>
+		<div style="height: 1000px;">
+			{% block content %}
+			{% endblock %}
+		</div>
+			
+		
 	</div>
 	
 	<footer class="ft">
@@ -103,6 +110,18 @@
 		var year = date.getFullYear();
 		var el = document.getElementById('footer_text');
 		el.innerHTML = '<p class="text-uppercase text-center" id = "footer_text" style="color: #777777">Pentagon LLC © ' + year + '</p>';
+
+		// Trigger the animation when the user scrolls to the element
+		$(window).scroll(function() {
+			$('#animatedElement').each(function(){
+				var imagePos = $(this).offset().top;
+
+				var topOfWindow = $(window).scrollTop();
+					if (imagePos < topOfWindow+400) {
+						$(this).addClass("slideUp");
+					}
+			});
+		});
 	</script>
 	
 </body>
